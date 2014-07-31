@@ -13,3 +13,7 @@
 """
 Infrastructure for building Spacewalk and Satellite packages from git tags.
 """
+
+# distributionbuilder wasn't originally in the builder package;
+# import it here for BC.
+from builder import distributionbuilder

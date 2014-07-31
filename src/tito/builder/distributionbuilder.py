@@ -1,9 +1,8 @@
 import os
 
-from tito.builder import UpstreamBuilder
+from tito.builder.upstreambuilder import UpstreamBuilder
 from tito.common import debug, run_command, error_out
 from tito.compat import *
-
 
 class DistributionBuilder(UpstreamBuilder):
     """ This class is used for building packages for distributions.
