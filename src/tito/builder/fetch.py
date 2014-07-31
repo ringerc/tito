@@ -16,7 +16,7 @@ import os
 import os.path
 import shutil
 
-from tito.builder.main import BuilderBase
+from tito.builder.base import BuilderBase
 from tito.config_object import ConfigObject
 from tito.common import error_out, debug, get_spec_version_and_release, \
     get_class_by_name
