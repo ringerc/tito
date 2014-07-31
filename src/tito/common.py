@@ -242,7 +242,8 @@ def find_file_with_extension(in_dir=None, suffix=None):
             file_name = f
             debug("Using file: %s" % f)
     if file_name is None:
-        error_out("Unable to locate a %s file in %s" % (suffix, in_dir))
+        print("No spec file was located. Tito expects to find the spec file in current directory.")
+        error_out("Unable to locate a %s file in %s (subdirs not searched)" % (suffix, in_dir))
     else:
         return file_name
 
