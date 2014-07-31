@@ -127,20 +127,28 @@ class BuilderBase(object):
         # Reset list of artifacts on each call to run().
         self.artifacts = []
 
+        took_action=False
+
         try:
             try:
                 if options.tgz:
                     self.tgz()
+                    took_action=True
                 if options.srpm:
                     self.srpm()
+                    took_action=True
                 if options.rpm:
                     # TODO: not protected anymore
                     self.rpm()
                     self._auto_install()
+                    took_action=True
             except KeyboardInterrupt:
                 print("Interrupted, cleaning up...")
         finally:
             self.cleanup()
+
+        if not took_action:
+            print("Note: no actions were specified for build. See tito build --help")
 
         return self.artifacts
 
